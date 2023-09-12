@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="/app.js" defer></script>
+    <title>TODO List</title>
+</head>
+<body>
+    <section class='todo'>
+        <header class="todo-header">
+            <h1>TODO LIST</h1>
+            <button class='btn add js-add'><span>+</span></button>
+        </header>
+        <div class="todo-list">
+            <ul class='list js-list' role='list'></ul>
+            <!--<ul class='list js-list' role='list'>
+                <li class='list-item' data-state=''>
+                    <p class='list-item--desc'>Finish JS exercise - testing so we can see the text been broken into new lines - can you see this?</p>
+                    <div class="actions">
+                        <button class='btn finished js-task-finished'></button>
+                        <button class='btn cancel js-task-cancel'></button>
+                    </div>
+                </li>
+            </ul>-->
+        </div>
+    </section>
+
+    <dialog class='modal__add-item js-modal'>
+        <h2>Add new TODO item:</h2>
+        <input type="text" name="item-desc" id="item-desc">
+        <button type='button' class='js-confirm'>Add</button>
+        <button type='button' class='js-cancel'>Cancel</button>
+    </dialog>
+</body>
+</html>

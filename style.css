@@ -1,0 +1,233 @@
+/* CSS RESET */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+:root {
+    /* Colors */
+    --green-teal: #29a0b1;
+    --green-teal-green: #167d7f;
+    --green-spearmint: #98d7c2;
+    --green-mint: #ddffe7;
+    --charcoal: #122620;
+    --red-orange: #fc2e20;
+    --red: #ef3340;
+    --pinkish-white: #FFF1FA;
+    --black: #010100;
+
+    /* Fonts */
+    --base-ff: 'Inter', sans-serif;
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-semibold: 500;
+}
+
+body {
+    font-family: var(--base-ff);
+    font-size: .9rem;
+    color: var(--black);
+    background-color: var(--pinkish-white);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-weight: var(--fw-semibold);
+}
+
+p {
+    font-weight: var(--fw-light);
+}
+
+.todo {
+    max-width: 20rem;
+    flex-grow: 1;
+}
+
+.todo-header {
+    padding: 1rem;
+    color: var(--pinkish-white);
+    background-color: var(--green-teal);
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    margin: 0;
+    aspect-ratio: 1;
+    line-height: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+.add {
+    width: 30px;
+    display: grid;
+    place-content: center;
+    transition: transform 250ms;
+}
+
+.add span {
+    font-size: 2rem;
+    transition: transform 250ms;
+}
+
+.add:hover {
+    transform: rotate(45deg);
+}
+
+.add:hover span {
+    transform: rotate(-45deg);
+}
+
+.list {
+    /*outline: 2px dotted saddlebrown;*/
+    margin: 0;
+    padding: 0;
+    min-height: 9rem;
+    max-height: 19.6rem;
+    overflow-y: auto;
+    position: relative;
+}
+
+.list:empty::before {
+    /*outline: 2px dotted saddlebrown;*/
+    content: "The list is empty. Press '+' buttom to add an activity.";
+    display: block;
+    padding: 1rem;
+    width: 70%;
+    position: absolute;
+    top: 23%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: .9rem;
+    font-weight: var(--fw-light);
+    color: var(--green-mint);
+    background-color: var(--green-teal);
+    text-align: center;
+    border-radius: 7px;
+}
+
+.list-item {
+    padding-block: .7rem;
+    padding-inline: .3rem;
+    background-color: var(--green-mint);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 1rem;
+}
+
+.list-item:nth-child(even) {
+    background-color: lightgrey;
+}
+
+.list-item--desc {
+    line-height: 1.3;
+    grid-column: 1 / 2;
+}
+
+.actions {
+    display: grid;
+    gap: .5rem;
+    grid-column: 2 / 3;
+}
+
+.finished, .cancel {
+    width: 1.5rem;
+}
+
+.finished {
+    background-color: var(--green-spearmint);
+    border: 2px solid var(--green-teal);
+}
+
+.cancel {
+    background-color: var(--red-orange);
+    border: 2px solid var(--red);
+}
+
+.modal__add-item[open] {
+    width: 30rem;
+}
+
+.list-item[data-state='finished'] {
+    text-decoration: line-through;
+    opacity: .5;
+}
